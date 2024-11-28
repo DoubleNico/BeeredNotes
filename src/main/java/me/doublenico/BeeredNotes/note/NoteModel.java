@@ -1,6 +1,6 @@
 package me.doublenico.BeeredNotes.note;
 
-public record NoteModel(String id, String title, String content) {
+public record NoteModel(Long id, String title, String content) {
     public NoteModel {
         if (title.isBlank()) throw new IllegalArgumentException("Title cannot be blank");
 

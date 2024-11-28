@@ -4,7 +4,7 @@ import me.doublenico.BeeredNotes.note.NoteModel;
 
 import java.util.List;
 
-public record UserModel(String id, String username, String email, String password, List<NoteModel> notes) {
+public record UserModel(Long id, String username, String email, String password, List<NoteModel> notes) {
     public UserModel {
         if (username.isBlank())
             throw new IllegalArgumentException("Username cannot be blank");
