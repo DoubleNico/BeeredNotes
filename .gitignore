@@ -33,7 +33,9 @@ build/
 .vscode/
 
 ### ENVIRONMENT ###
-*.env
+.env
+.env*.local
+!.env.example
 
 # User-specific stuff
 .idea/
