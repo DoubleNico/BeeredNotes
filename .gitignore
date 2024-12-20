@@ -33,7 +33,7 @@ build/
 .vscode/
 
 ### ENVIRONMENT ###
-.env
+*.env
 
 # User-specific stuff
 .idea/
