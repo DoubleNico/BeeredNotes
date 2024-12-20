@@ -1,10 +1,9 @@
 package me.doublenico.BeeredNotes.note;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import me.doublenico.BeeredNotes.user.User;
+import me.doublenico.BeeredNotes.user.UserModel;
 
 @Entity
 public class Note {
@@ -18,11 +17,16 @@ public class Note {
     @NotBlank(message = "Content is mandatory")
     private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Note() {}
 
-    public Note(String title, String content) {
+    public Note(String title, String content, User user) {
         this.title = title;
         this.content = content;
+        this.user = user;
     }
 
     public Long getId() {
@@ -49,12 +53,21 @@ public class Note {
         this.content = content;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Note{" +
             "id=" + id +
             ", title='" + title + '\'' +
             ", content='" + content + '\'' +
+            ", user=" + user +
             '}';
     }
 }
