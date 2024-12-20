@@ -20,6 +20,8 @@
 <ul>
     <li th:each="note : ${notes}">
         <strong th:text="${note.title}">Title</strong>: <span th:text="${note.content}">Content</span>
+        <a th:href="@{/notes/{id}(id=${note.id})}">View</a>
+        <a th:href="@{/notes/edit/{id}(id=${note.id})}">Edit</a>
         <form method="post" th:action="@{/{id}(id=${note.id})}" th:method="delete" style="display:inline;">
             <button type="submit">Delete</button>
         </form>

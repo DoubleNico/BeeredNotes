@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Note</title>
+</head>
+<body>
+<h1 th:text="${note.title}">Note Title</h1>
+<p th:text="${note.content}">Note Content</p>
+
+<a th:href="@{/notes/edit/{id}(id=${note.id})}">Edit Note</a>
+<a th:href="@{/}">Back to Notes</a>
+</body>
+</html>
